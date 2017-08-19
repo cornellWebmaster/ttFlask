@@ -1,0 +1,11 @@
+berkeley.jpg
+cornell.png
+cornellWeill.png
+duke.png
+northwestern.png
+nyu.png
+stanford.png
+ucf.png
+uiuc.png
+upenn.png
+utaustin.png
