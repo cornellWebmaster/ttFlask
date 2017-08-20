@@ -300,7 +300,7 @@
             {% set brother = brother.split("|") %}
             <div class="col sm-col sm-col-4 md-col-3 lg-col-2 sublabel p-small blocks">
                 <div class="" style="cursor:pointer" data-toggle="modal" data-target="[name = '{{brother[2] ~ "_" ~ brother[0] ~ "_" ~ brother[1]}}']">
-                    <img src="{{url_for('static', filename='img/brothers/' ~ brother[0][0]|lower ~ brother[1]|lower ~'.jpg')}}" alt="{{ brother[0] ~ ' ' ~ brother[1]}}" />
+                    <img src="{{url_for('static', filename='img/brothers/' ~ brother[0][0]|lower|replace(' ', '') ~ brother[1]|lower|replace(' ', '') ~'.jpg')}}" alt="{{ brother[0] ~ ' ' ~ brother[1]}}" />
                 </div>
                 <div class="">
                     <h6 class="h7 center decorated-2 mb0 mt1"> {{ brother[0] ~ ' ' ~ brother[1]}} </h6>
@@ -314,7 +314,7 @@
             {% set brother = brother.split("|") %}
             <div class="col sm-col sm-col-4 md-col-3 lg-col-2 sublabel p-small blocks">
                 <div class="" style="cursor:pointer" data-toggle="modal" data-target="[name = '{{brother[2] ~ "_" ~ brother[0] ~ "_" ~ brother[1]}}']">
-                    <img src="{{url_for('static', filename='img/brothers/' ~ brother[0][0]|lower ~ brother[1]|lower ~'.jpg')}}" alt="{{ brother[0] ~ ' ' ~ brother[1]}}" />
+                    <img src="{{url_for('static', filename='img/brothers/' ~ brother[0][0]|lower|replace(' ', '') ~ brother[1]|lower|replace(' ', '') ~'.jpg')}}" alt="{{ brother[0] ~ ' ' ~ brother[1]}}" />
                 </div>
                 <div class="">
                     <h6 class="h7 center decorated-2 mb0 mt1"> {{ brother[0] ~ ' ' ~ brother[1]}} </h6>
@@ -342,7 +342,7 @@
         {% endif %}
           <div class="col sm-col sm-col-4 md-col-2 lg-col-2 p-small blocks">
             <div class=""style="cursor:pointer" data-toggle="modal" data-target="[name = '{{brother[2] ~ '_' ~ brother[0] ~ '_' ~ brother[1]}}']">
-                <img src="{{url_for('static', filename='img/brothers/' ~ brother[0][0]|lower ~ brother[1]|lower|replace(' ', '') ~'.jpg')}}" alt="{{ brother[0] ~ ' ' ~ brother[1]}}">
+                <img src="{{url_for('static', filename='img/brothers/' ~ brother[0][0]|lower|replace(' ', '') ~ brother[1]|lower|replace(' ', '') ~'.jpg')}}" alt="{{ brother[0] ~ ' ' ~ brother[1]}}" height="223.5px">
             </div>
             <div class="">
                 <h6 class="h7 center decorated-2 mt1 mb2">{{ brother[0] ~ ' ' ~ brother[1]}}</h6><br>
@@ -398,7 +398,7 @@
                 <div class="modal-dialog">
                     <div class="bg-white">
                         <div class="overlay"
-                             style="background: url({{url_for('static', filename='img/brothers/' ~ brother[0][0]|lower ~ brother[1]|lower ~'.jpg')}});
+                             style="background: url({{url_for('static', filename='img/brothers/' ~ brother[0][0]|lower|replace(' ', '') ~ brother[1]|lower|replace(' ', '') ~'.jpg')}});
                                     background-size:   cover;
                                     background-repeat: no-repeat;
                                     background-position: center 30%; ">
@@ -430,7 +430,7 @@
                     <div class="bg-white">
                         <div class="row">
                             <div class="six columns width-50p"
-                                 style="background: url({{url_for('static', filename='img/brothers/' ~ brother[0][0]|lower ~ brother[1]|lower ~'.jpg')}});
+                                 style="background: url({{url_for('static', filename='img/brothers/' ~ brother[0][0]|lower|replace(' ', '') ~ brother[1]|lower|replace(' ', '') ~'.jpg')}});
                                         background-size:   cover;
                                         background-repeat: no-repeat;
                                         background-position: center 30%;
