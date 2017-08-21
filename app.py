@@ -2,7 +2,7 @@ from flask import Flask, render_template
 import os
 import sys
 reload(sys)
-sys.setdefaultencoding("utf-8")
+sys.setdefaultencoding("utf8")
 app = Flask(__name__)
 
 @app.route('/')
