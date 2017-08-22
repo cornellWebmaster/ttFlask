@@ -255,8 +255,11 @@
         <div id="employers-more">
             <div class="row">
             {% for i in range(18, employers|length) %}
+            {% set employer = employers[i].split(",") %}
                 <div class="col col-4 sm-col sm-col-4 md-col-3 lg-col-2 sublabel blocks pt2 pb2 pr2 pl2" style="height: 155px">
-                    <img class="employer-logo vertical-align" src="{{url_for('static', filename='img/employers/' + employers[i].strip())}}" >
+                    <a href="{{employer[1]}}">
+                        <img class="employer-logo vertical-align" src="{{url_for('static', filename='img/employers/' + employer[0].strip())}}" >
+                    </a>
                 </div>
             {% endfor %}
             </div>
