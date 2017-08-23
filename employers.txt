@@ -13,7 +13,7 @@ cocacola.png,http://www.coca-cola.com
 codex.jpg
 deloitte.png,http://www.deloitte.com
 deutschebank.png,http://www.db.com
-exxonmobil.png,corporate.exxonmobil.com
+exxonmobil.png,http://corporate.exxonmobil.com
 facebook.png,http://www.facebook.com
 genentech.png,http://www.gene.com
 genzyme.png,http://sanofigenzyme.com
