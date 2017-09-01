@@ -4,6 +4,7 @@ apple.png,http://www.apple.com
 att.png,http://www.att.com
 blackjet.png
 blackrock.png,http://www.blackrock.com
+blackstone.png,http://www.blackstone.com
 boeing.png,http://www.boeing.com
 burnsmcdonnel.png,http://www.burnsmcd.com
 buzzfeed.png,http://www.buzzfeed.com
@@ -46,6 +47,7 @@ shopkick.png,http://www.shopkick.com
 siemens.png,http://www.siemens.com
 skanska.png,http://www.skanska.com
 spacex.png,http://www.spacex.com
+src.jpg,http://www.srcinc.com/
 texasinstrument.png,http://www.ti.com
 tyrx.png,http://www.tyrx.com
 uber.png,http://www.uber.com
