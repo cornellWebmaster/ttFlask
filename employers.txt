@@ -2,6 +2,7 @@ accenture.png,http://www.accenture.com
 amazon.png,http://www.amazon.com
 apple.png,http://www.apple.com
 att.png,http://www.att.com
+BAE.png,http://www.baesystems.com/en/home
 blackjet.png
 blackrock.png,http://www.blackrock.com
 blackstone.png,http://www.blackstone.com
@@ -23,6 +24,7 @@ google.png,http://www.google.com
 graphiq.png,
 greenetweed.png,http://gtweed.com
 hewlettpackard.png,http://www.hp.com
+Hubspot.jpg, http://hubspot.com
 ibm.png,http://www.ibm.com
 innovation.png,http://innovation.partners.org
 intel.png,http://www.intel.com
@@ -35,6 +37,7 @@ medidata.png,http://mdsol.com
 merck.png,http://www.merck.com
 microsoft.png,http://www.microsoft.com
 mongodb.png,http://www.mongodb.com
+MorganStanley.jpg,http://www.morganstanley.com
 msr.png,http://www.msrgear.com
 nasajpl.png,http://www.jpl.nasa.gov
 nyse.png,http://www.nyse.com
@@ -47,12 +50,15 @@ shopkick.png,http://www.shopkick.com
 siemens.png,http://www.siemens.com
 skanska.png,http://www.skanska.com
 spacex.png,http://www.spacex.com
+squarespace.jpg,http://www.squarespace.com
 src.jpg,http://www.srcinc.com/
+Stratasys.jpg,http://www.stratasys.com
 texasinstrument.png,http://www.ti.com
 tyrx.png,http://www.tyrx.com
 uber.png,http://www.uber.com
 ula.png,http://www.ulalaunch.com
 verizon.png,http://www.verizon.com
+vidaris.png,http://www.vidaris.com
 whitingturner.png,http://www.whiting-turner.com
 wonderworkshop.png,http://www.makewonder.com
 workday.png,http://www.workday.com
