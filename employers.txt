@@ -24,7 +24,7 @@ google.png,http://www.google.com
 graphiq.png,
 greenetweed.png,http://gtweed.com
 hewlettpackard.png,http://www.hp.com
-Hubspot.jpg, http://hubspot.com
+HubSpot.jpg, http://hubspot.com
 ibm.png,http://www.ibm.com
 innovation.png,http://innovation.partners.org
 intel.png,http://www.intel.com
