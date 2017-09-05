@@ -2,7 +2,7 @@ aguaclara.png
 baja.png
 cmr.png
 cuair.png
-cuauv.png
+cuauv.svg
 cusd.png
 dbf.png
 fsae.png
