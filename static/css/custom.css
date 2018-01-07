@@ -827,6 +827,10 @@ ol, ul{list-style:none;}
     background-color:#ed3940;
 }
 
+#contact a{
+    color:#bababa!important;
+}
+
 .contact-line{
     margin-top:40px;
     margin-left:10%;
