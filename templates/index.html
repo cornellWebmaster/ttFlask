@@ -42,7 +42,7 @@
     <li class="nav-item"><a class="nav-about-us">About</a></li>
     <li class="nav-item"><a class="nav-portfolio">Portfolio</a></li>
     <li class="nav-item"><a class="nav-brothers">Brothers</a></li>
-    <li class="nav-item"><a class="nav-apply">Apply</a></li>
+    {% if apply_display == "block" %}<li class="nav-item"><a class="nav-apply">Apply</a></li>{% endif %}
     <li class="nav-item"><a class="nav-contact">Contact</a></li>
 </ul>
 
@@ -71,7 +71,7 @@
             <a class="link menu-item nav-brothers">Brothers</a>
             <a class="link menu-item nav-portfolio">Portfolio</a>
             <a class="link menu-item nav-about-us">About</a>
-            <a class="link menu-item nav-apply">Apply</a>
+            {% if apply_display == "block" %}<a class="link menu-item nav-apply">Apply</a>{% endif %}
             <a class="link menu-item nav-home">Home</a>
         </div>
       </div>
@@ -335,11 +335,14 @@
              echen2.jpg. (third column)
         type = the type (can be either PC or eboard position, depending
              on which file is being used). (fourth column)
+        bios = array of columns that are bios (each cell is a separate paragraph).
+             (5th to 10th column).
     -->
     {% set fn = 0 %}
     {% set ln = 1 %}
     {% set id = 2 %}
     {% set type = 3 %}
+    {% set bios = range(4,9) %}
 
     <!-- ========================== EBOARD (profiles) ========================== -->
     <div id="brothers" class="bg-lightgrey-2 pt4">
@@ -537,8 +540,8 @@
                         <div class="modal-body p3 modal-content">
                             <div class="row">
                                 <div class="eight columns float-none modal-body-text mx-auto">
-                                    {% for i in range(4,9) %}
-                                        {% if brother[i]|trim != "na" %}
+                                    {% for i in bios %}
+                                        {% if brother[i]|trim|length != 0 %}
                                             <p>{{brother[i] | safe}}</p>
                                         {% endif %}
                                     {% endfor %}
@@ -577,8 +580,8 @@
                                 </div>
                                 <div class="row modal-content scroll ">
                                     <div class="float-none modal-body-text mx-auto">
-                                        {% for i in range(4,9) %}
-                                            {% if brother[i]|trim != "na" %}
+                                        {% for i in bios %}
+                                            {% if brother[i]|trim|length != 0 %}
                                                 <p>{{brother[i] | safe}}</p>
                                             {% endif %}
                                         {% endfor %}
