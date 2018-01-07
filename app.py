@@ -30,6 +30,7 @@ def hello_world():
                                eboard=eboard.readlines()[1:],
                                semester=semesterly.readlines()[1:],
                                brothers=brothers.readlines()[1:],
+                               # TODO: Switch between "block" and "none" as necessary.
                                apply_display="block"
                                )
 
