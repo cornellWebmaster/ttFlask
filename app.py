@@ -7,12 +7,12 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello_world():
-    with open("employers.txt", "r") as employers, \
-        open("schools.txt", "r") as schools, \
-        open("teams.txt", "r") as teams, \
-        open("core.csv", "r") as eboard, \
-        open("semester.csv", "r") as semesterly, \
-        open("brothers.csv", "r") as brothers:
+    with open("data/places/employers.txt", "r") as employers, \
+        open("data/places/schools.txt", "r") as schools, \
+        open("data/places/teams.txt", "r") as teams, \
+        open("data/brothers/core.tsv", "r") as eboard, \
+        open("data/brothers/semester.tsv", "r") as semesterly, \
+        open("data/brothers/brothers.tsv", "r") as brothers:
         return render_template("index.html",
                                employers=employers.readlines(),
                                schools=schools.readlines(),
