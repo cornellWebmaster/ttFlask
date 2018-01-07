@@ -305,6 +305,25 @@
         </div>
     </div>
 
+    <!-- ======= Setting vars for profiles =======
+        Basically, these numbers denote which column refers to which
+        attribute of a brother. This should be universal across all
+        csv/tsv's, since the same indices are used between core eboard,
+        semesterly eboard, and regular brothers.
+
+        fn = first name (first column)
+        ln = last name (second column)
+        id = the ID of a brother - this is bc some people have the same
+             first and last name, so we need a way to find echen1.jpg and
+             echen2.jpg. (third column)
+        type = the type (can be either PC or eboard position, depending
+             on which file is being used). (fourth column)
+    -->
+    {% set fn = 0 %}
+    {% set ln = 1 %}
+    {% set id = 2 %}
+    {% set type = 3 %}
+
     <!-- ========================== EBOARD (profiles) ========================== -->
     <div id="brothers" class="bg-lightgrey-2 pt4">
         <div class="container bb-grey pt3 pb4">
@@ -327,12 +346,12 @@
             {% for brother in eboard %}
             {% set brother = brother.split("\t") %}
             <div class="col sm-col sm-col-4 md-col-3 lg-col-2 sublabel p-small blocks">
-                <div class="" style="cursor:pointer" data-toggle="modal" data-target="[name = '{{brother[2] ~ "_" ~ brother[0] ~ "_" ~ brother[1]}}']">
-                    <img src="{{url_for('static', filename='img/brothers/' ~ brother[0][0]|lower|replace(' ', '') ~ brother[1]|lower|replace(' ', '') ~'.jpg')}}" alt="{{ brother[0] ~ ' ' ~ brother[1]}}" />
+                <div class="" style="cursor:pointer" data-toggle="modal" data-target="[name = '{{brother[type] ~ "_" ~ brother[fn] ~ "_" ~ brother[ln]}}']">
+                    <img src="{{url_for('static', filename='img/brothers/' ~ brother[fn][0]|lower|replace(' ', '') ~ brother[ln]|lower|replace(' ', '') ~ brother[id]|replace(' ','') ~'.jpg')}}" alt="{{ brother[fn] ~ ' ' ~ brother[ln]}}" />
                 </div>
                 <div class="">
                     <h6 class="h7 center decorated-2 mb0 mt1"> {{ brother[0] ~ ' ' ~ brother[1]}} </h6>
-                    <p class="center caption">{{ brother[2]}}</p>
+                    <p class="center caption">{{ brother[3]}}</p>
                 </div>
             </div>
             {% endfor %}
@@ -343,12 +362,12 @@
             {% for brother in semester %}
             {% set brother = brother.split("\t") %}
             <div class="col sm-col sm-col-4 md-col-3 lg-col-2 sublabel p-small blocks">
-                <div class="" style="cursor:pointer" data-toggle="modal" data-target="[name = '{{brother[2] ~ "_" ~ brother[0] ~ "_" ~ brother[1]}}']">
-                    <img src="{{url_for('static', filename='img/brothers/' ~ brother[0][0]|lower|replace(' ', '') ~ brother[1]|lower|replace(' ', '') ~'.jpg')}}" alt="{{ brother[0] ~ ' ' ~ brother[1]}}" />
+                <div class="" style="cursor:pointer" data-toggle="modal" data-target="[name = '{{brother[type] ~ "_" ~ brother[fn] ~ "_" ~ brother[ln]}}']">
+                    <img src="{{url_for('static', filename='img/brothers/' ~ brother[fn][0]|lower|replace(' ', '') ~ brother[ln]|lower|replace(' ', '') ~ brother[id]|replace(' ','') ~'.jpg')}}" alt="{{ brother[0] ~ ' ' ~ brother[1]}}" />
                 </div>
                 <div class="">
                     <h6 class="h7 center decorated-2 mb0 mt1"> {{ brother[0] ~ ' ' ~ brother[1]}} </h6>
-                    <p class="center caption">{{ brother[2]}}</p>
+                    <p class="center caption">{{ brother[3]}}</p>
                 </div>
             </div>
             {% endfor %}
@@ -361,8 +380,8 @@
     <div class="container bb-grey pt4 pb8">
         {% for i in range(brothers|length) %}
         {% set brother = brothers[i].split("\t") %}
-        {% set class = brother[2] %}
-        {% if i == 0 or class != brothers[i-1].split("\t")[2] %}
+        {% set class = brother[3] %}
+        {% if i == 0 or class != brothers[i-1].split("\t")[3] %}
             {% if i != 0 %} <!-- This is to close the "row" and "ten columns" div classes -->
                 </div>
             </div>
@@ -374,8 +393,8 @@
             <div class="ten columns">
         {% endif %}
             <div class="col sm-col sm-col-4 md-col-2 lg-col-2 p-small blocks">
-                <div class=""style="cursor:pointer" data-toggle="modal" data-target="[name = '{{brother[2] ~ '_' ~ brother[0] ~ '_' ~ brother[1]}}']">
-                    <img src="{{url_for('static', filename='img/brothers/' ~ brother[0][0]|lower|replace(' ', '') ~ brother[1]|lower|replace(' ', '') ~'.jpg')}}" alt="{{ brother[0] ~ ' ' ~ brother[1]}}" height="223.5px">
+                <div class=""style="cursor:pointer" data-toggle="modal" data-target="[name = '{{brother[type] ~ '_' ~ brother[fn] ~ '_' ~ brother[ln]}}']">
+                    <img src="{{url_for('static', filename='img/brothers/' ~ brother[fn][0]|lower|replace(' ', '') ~ brother[ln]|lower|replace(' ', '') ~ brother[id]|replace(' ','') ~'.jpg')}}" alt="{{ brother[fn] ~ ' ' ~ brother[ln]}}" height="223.5px">
                 </div>
                 <div class="">
                     <h6 class="h7 center decorated-2 mt1 mb2">{{ brother[0] ~ ' ' ~ brother[1]}}</h6><br>
@@ -386,42 +405,7 @@
         </div>
     </div>
 
-    <!-- ========================== APPLY (desc & form) ========================== --
-    <div id="apply" class="container w-800 bg-lightgrey-2 bb-grey block stagger1">
-        <div>
-            <center>
-             <h6 class="decorated-2 mb3" style="margin:0; padding-top: 40px;">Spring Recruitment Application</h6>
-             <h7 class="decorated-2 mb3" style="margin:0; padding-top: 40px;">DEADLINE: Jan 31 12:00 PM</h6>
-            </center>
-        </div>
-        <div class="row mx-auto">
-            <div class="six columns p4">
-                <h6 class="mb0">Information Session 1</h6>
-                <p class="caption"> Jan 29 | 7:00 - 9:00 PM | Location TBD </p>
-            </div>
-            <div class="six columns p4">
-                <h6 class="mb0">Information Session 2</h6>
-                <p class="caption"> Jan 30 | 7:00 - 9:00 PM | Location TBD </p>
-            </div>
-        </div>
-        <div style="padding: 0 40px 40px 40px;">
-              <p class="h7 regular grey caption mb0 ">1. Freshmen or Sophomores enrolled in an Engineering program (Includes Computer Science, Information Science, Environmental Engineering and Biological Engineering outside the College of Engineering).</p>
-              <p class="h7 regular grey caption mb0 ">2. Must be at least 18 years of age at the time of initiation.</p>
-              <p class="h7 regular grey caption mb0 ">3. Must have a cumulative GPA of 2.5 or higher. Please include GPA on resume.</p>
-              <p class="h6 regular grey caption mb0 ">4. Information Session attendance is mandatory.</p>
-              <br>
-              <p class="h6 regular grey caption mb0 "> If you have a conflict or any questions/comments contact recruitment chairs Kyra Conroy (kdc58@cornell.edu) and Joanna Davis (jd699@cornell.edu)</p>
-              <p class="h6 regular grey caption mb0 "> Like us on Facebook for quick updates: <a href=http://facebook.com/cornellthetatau>http://facebook.com/cornellthetatau</a></p>
-        </div>
-
-        <div class="p4">
-            <center><a href="https://goo.gl/forms/RGWuosuzxijJlWNr1"><button>APPLY</button></a></center>
-        </div>
-
-    </div>
-    <!-- end of application section -->
-
-    <!-- ========================== WHAT WE DO ========================== -->
+    <!-- ========================== APPLY (desc & form) ========================== -->
     <div id="apply" class="bg-lightgrey-2">
         <div class="container pt6 pb6 pl2 pr2">
             <div class="row">
@@ -512,28 +496,28 @@
 {% set everyone = eboard + semester + brothers %}
 {% for brother in everyone %}
 {% set brother = brother.split("\t") %}
-<div class="modal fade" name="{{brother[2] ~ '_' ~ brother[0] ~ '_' ~ brother[1]}}">
+<div class="modal fade" name="{{brother[type] ~ '_' ~ brother[fn] ~ '_' ~ brother[ln]}}">
 
             <div id="mobile">
                 <div class="modal-dialog">
                     <div class="bg-white">
                         <div class="overlay"
-                             style="background: url({{url_for('static', filename='img/brothers/' ~ brother[0][0]|lower|replace(' ', '') ~ brother[1]|lower|replace(' ', '') ~'.jpg')}});
+                             style="background: url({{url_for('static', filename='img/brothers/' ~ brother[fn][0]|lower|replace(' ', '') ~ brother[ln]|lower|replace(' ', '') ~ brother[id]|replace(' ','') ~ '.jpg')}});
                                     background-size:   cover;
                                     background-repeat: no-repeat;
                                     background-position: center 30%; ">
                             <div class="overlay modal-header pb3 pl3 pr3"
                                  >
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                <h6 class="white h7 decorated-3 mb0 mt12 ">{{brother[0] ~ ' ' ~ brother[1]}}</h6>
-                                <p class="white caption">{{brother[2]}}</p>
+                                <h6 class="white h7 decorated-3 mb0 mt12 ">{{brother[fn] ~ ' ' ~ brother[ln]}}</h6>
+                                <p class="white caption">{{brother[type]}}</p>
                             </div>
                         </div>
 
                         <div class="modal-body p3 modal-content">
                             <div class="row">
                                 <div class="eight columns float-none modal-body-text mx-auto">
-                                    {% for i in range(3,8) %}
+                                    {% for i in range(4,9) %}
                                         {% if brother[i]|trim != "na" %}
                                             <p>{{brother[i] | safe}}</p>
                                         {% endif %}
@@ -552,7 +536,7 @@
                     <div class="bg-white">
                         <div class="row">
                             <div class="six columns width-50p"
-                                 style="background: url({{url_for('static', filename='img/brothers/' ~ brother[0][0]|lower|replace(' ', '') ~ brother[1]|lower|replace(' ', '') ~'.jpg')}});
+                                 style="background: url({{url_for('static', filename='img/brothers/' ~ brother[fn][0]|lower|replace(' ', '') ~ brother[ln]|lower|replace(' ', '') ~ brother[id]|replace(' ','') ~'.jpg')}});
                                         background-size:   cover;
                                         background-repeat: no-repeat;
                                         background-position: center 30%;
@@ -562,8 +546,8 @@
                             <div class="six columns modal-body ml0 width-50p p3">
                                 <div class="row bb-grey mb2">
                                     <div class="eleven columns">
-                                        <h6 class="modal-text-color decorated-3 mb0">{{brother[0] ~ ' ' ~ brother[1] }}</h6>
-                                        <p class="caption">{{brother[2]}}</p>
+                                        <h6 class="modal-text-color decorated-3 mb0">{{brother[fn] ~ ' ' ~ brother[ln] }}</h6>
+                                        <p class="caption">{{brother[type]}}</p>
                                     </div>
                                     <div class="one columns">
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -573,7 +557,7 @@
                                 </div>
                                 <div class="row modal-content scroll ">
                                     <div class="float-none modal-body-text mx-auto">
-                                        {% for i in range(3,8) %}
+                                        {% for i in range(4,9) %}
                                             {% if brother[i]|trim != "na" %}
                                                 <p>{{brother[i] | safe}}</p>
                                             {% endif %}
