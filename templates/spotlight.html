@@ -4,7 +4,7 @@
     <!-- Basic Page Needs
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
     <meta charset="utf-8">
-    <title>Theta Tau Cornell - Professional Engineering Fraternity </title>
+    <title>Theta Tau Cornell - {{spotlight[1]}} </title>
     <meta name="description" content="The Foremost Professional Engineering Fraternity">
     <meta name="author" content="Andrew Aquino, Brandon Hartz, Varun Hegde, Valerie Hu, Yuxiao Tan, Brian Guo, Celine Choo">
 
@@ -51,25 +51,28 @@
 {% set ln = 1 %}
 {% set id = 2 %}
 {% set type = 3 %}
-{% set bios = range(4,9) %}
-{% set net = 9 %}
+{% set bios = range(4,11) %}
+{% set net = 11 %}
 
 {% set sid = 0 %}
 {% set stitle = 1 %}
 {% set sdesc = 2 %}
 {% set simg = 3 %}
-{% set content = range(4,14) %}
+{% set subtitle = 4 %}
+{% set endtitle = 5 %}
+{% set content = range(6,16) %}
 
 <!--=======================================================
                         NAVIGATION
 ========================================================-->
 
 <ul class="navigation mobile">
-    <li class="nav-item"><a href="/">Home</a></li>
+    <li class="nav-item"><a href="/#home" >Home</a></li>
     <li class="nav-item"><a href="/#about-us">About</a></li>
+    <li class="nav-item"><a href="/#spotlight">Spotlight</a></li>
     <li class="nav-item"><a href="/#portfolio">Portfolio</a></li>
     <li class="nav-item"><a href="/#brothers">Brothers</a></li>
-    {% if apply_display == "block" %}<li class="nav-item"><a class="nav-apply">Apply</a></li>{% endif %}
+    {% if apply_display == "block" %}<li class="nav-item"><a href="/#apply">Apply</a></li>{% endif %}
     <li class="nav-item"><a href="/#contact">Contact</a></li>
 </ul>
 
@@ -89,19 +92,20 @@
 <div class="site-wrap">
     <div class="bg-black regular">
     <div class="container pt2 pb2 nav-desktop">
-      <div class="row">
-        <div class="four columns">
-            <img class="menu-item" src="{{url_for('static', filename='img/red.tt.logo.png')}}"/>
+        <div class="row">
+            <div class="four columns">
+                <img class="menu-item" src="{{url_for('static', filename='img/red.tt.logo.png')}}"/>
+            </div>
+            <div class="eight columns">
+                <a class="link menu-item" href="/#contact">Contact</a>
+                {% if apply_display == "block" %}<a class="link menu-item" href="/#apply">Apply</a>{% endif %}
+                <a class="link menu-item" href="/#brothers">Brothers</a>
+                <a class="link menu-item" href="/#portfolio">Portfolio</a>
+                <a class="link menu-item" href="/#spotlight">Spotlight</a>
+                <a class="link menu-item" href="/#about-us">About</a>
+                <a class="link menu-item" href="/#home">Home</a>
+            </div>
         </div>
-        <div class="eight columns">
-            <a class="link menu-item" href="/#contact">Contact</a>
-            <a class="link menu-item" href="/#brothers">Brothers</a>
-            <a class="link menu-item" href="/#portfolio">Portfolio</a>
-            <a class="link menu-item" href="/#about-us">About</a>
-            {% if apply_display == "block" %}<a class="link menu-item" href="/#apply">Apply</a>{% endif %}
-            <a class="link menu-item" href="/">Home</a>
-        </div>
-      </div>
     </div>
     </div>
 
@@ -126,9 +130,9 @@
                               spotlight
     ========================================================-->
 
-    <div class="container pt3 pb1">
+    <div class="container pt4 pb4">
         <div class="row">
-            <h6 class="decorated">Featured Spotlight</h6>
+            <h6 class="decorated">{{spotlight[subtitle]}}</h6>
             <h2 class="bold">{{spotlight[stitle]}}</h2>
         </div>
         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" width="52px" height="2px" viewBox="0 0 52 2" version="1.1">
@@ -142,6 +146,9 @@
                 <p>{{spotlight[i] | safe}}</p>
             {% endif %}
         {% endfor %}
+        {% if spotlight[endtitle]|trim|length != 0 %}
+            <div style="text-align:right;"><h6 class="decorated">{{spotlight[endtitle]}}</h6></div>
+        {% endif %}
         </div>
     </div>
 

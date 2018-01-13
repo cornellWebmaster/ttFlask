@@ -60,29 +60,29 @@
 </label>
 
 <div class="site-wrap">
-  <div class="bg-black regular">
+    <div class="bg-black regular">
     <div class="container pt2 pb2 nav-desktop">
-      <div class="row">
-        <div class="four columns">
-            <img class="menu-item" src="{{url_for('static', filename='img/red.tt.logo.png')}}"/>
+        <div class="row">
+            <div class="four columns">
+                <img class="menu-item" src="{{url_for('static', filename='img/red.tt.logo.png')}}"/>
+            </div>
+            <div class="eight columns">
+                <a class="link menu-item nav-contact">Contact</a>
+                {% if apply_display == "block" %}<a class="link menu-item nav-apply">Apply</a>{% endif %}
+                <a class="link menu-item nav-brothers">Brothers</a>
+                <a class="link menu-item nav-portfolio">Portfolio</a>
+                <a class="link menu-item nav-spotlight">Spotlight</a>
+                <a class="link menu-item nav-about-us">About</a>
+                <a class="link menu-item nav-home">Home</a>
+            </div>
         </div>
-        <div class="eight columns">
-            <a class="link menu-item nav-contact">Contact</a>
-            {% if apply_display == "block" %}<a class="link menu-item nav-apply">Apply</a>{% endif %}
-            <a class="link menu-item nav-brothers">Brothers</a>
-            <a class="link menu-item nav-portfolio">Portfolio</a>
-            <a class="link menu-item nav-spotlight">Spotlight</a>
-            <a class="link menu-item nav-about-us">About</a>
-            <a class="link menu-item nav-home">Home</a>
-        </div>
-      </div>
     </div>
-  </div>
+    </div>
 
     <!--=======================================================
                               HEADER
     ========================================================-->
-    <div id="home" class="bg-header">
+    <div id="home" name="home" class="bg-header">
         <div class="container pt12 pb12 center">
             <div class="row">
                 <h1 class="capitalize white bold mt2">Theta Tau</h1>
@@ -184,15 +184,11 @@
                 <div class="row mt4">
                     <div class="six columns offwhite">
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris quis nisl sed risus congue facilisis. Curabitur ut metus id erat aliquam sollicitudin. Quisque nulla purus, dignissim et efficitur sit amet, imperdiet nec lacus. Vestibulum consequat rhoncus elit, sit amet rutrum ante porta a. Sed scelerisque sit amet lorem a luctus. Etiam accumsan varius sagittis. Nunc at urna non odio dapibus bibendum. Ut id neque eget tortor cursus fringilla.
-                        </p><p>
-                            Morbi nec sapien sit amet nisl facilisis dapibus. Proin quis nulla bibendum, rutrum nunc id, elementum ipsum. Sed luctus pulvinar nibh. Suspendisse pulvinar, velit sagittis finibus vehicula, urna erat cursus augue, quis luctus est nibh ut est. Maecenas suscipit neque tellus. Aenean vel nunc viverra mi elementum tincidunt. Donec mi orci, commodo ut tincidunt dignissim, feugiat nec nibh. Nullam nibh eros, mattis vel justo imperdiet, pulvinar hendrerit ex. Ut lobortis nisl nibh, non aliquam eros tempor ut.
+                            Within Theta Tau, the bonds we make are integral to shaping both our Cornell experiences and our future professional careers. Michael and Justin, the social chairs, are in charge of planning and organizing events where brothers fortify fulfilling friendships and make meaningful memories. The brothers of Theta Tau have enjoyed formal events scheduled at the end of every semester, date nights, pledge class bonding events, and excursions to off-campus activities, such as apple picking, go-karting, and team building.
                         </p>
                     </div>
                     <div class="six columns offwhite bb-darkergrey mb2">
                         <p>
-                            Within Theta Tau, the bonds we make are integral to shaping both our Cornell experiences and our future professional careers. Michael and Justin, the social chairs, are in charge of planning and organizing events where brothers fortify fulfilling friendships and make meaningful memories. The brothers of Theta Tau have enjoyed formal events scheduled at the end of every semester, date nights, pledge class bonding events, and excursions to off-campus activities, such as apple picking, go-karting, and team building. <br/><br/>
-
                             These bonds of brotherhood formed within the organization go far beyond just professional connections, providing a home away from home, mentorship, and a sense of community at a large university.  Having brotherhood means enjoying lifelong connections that can provide support and celebration in life's most important moments.
                         </p>
                     </div>
@@ -214,12 +210,12 @@
                 <div class="row mt4">
                     <div class="six columns offwhite">
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris quis nisl sed risus congue facilisis. Curabitur ut metus id erat aliquam sollicitudin. Quisque nulla purus, dignissim et efficitur sit amet, imperdiet nec lacus. Vestibulum consequat rhoncus elit, sit amet rutrum ante porta a. Sed scelerisque sit amet lorem a luctus. Etiam accumsan varius sagittis. Nunc at urna non odio dapibus bibendum. Ut id neque eget tortor cursus fringilla.
+                            Professionalism is one of the three main tenets of Theta Tau. We strive to provide resources and educational opportunities for both new members and brothers, with the hope that all brothers will develop the self confidence, self awareness, and lifelong skills applicable to whatever profession they choose.
                         </p>
                     </div>
                     <div class="six columns offwhite bb-darkergrey mb2">
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris quis nisl sed risus congue facilisis. Curabitur ut metus id erat aliquam sollicitudin. Quisque nulla purus, dignissim et efficitur sit amet, imperdiet nec lacus. Vestibulum consequat rhoncus elit, sit amet rutrum ante porta a. Sed scelerisque sit amet lorem a luctus. Etiam accumsan varius sagittis. Nunc at urna non odio dapibus bibendum. Ut id neque eget tortor cursus fringilla.
+                            Throughout the year, we serve not only our members but the greater engineering community by hosting information sessions, resume critiques, mock interviews, Alumni Panel Talks, and presentations on a variety of topics. Our favorite events include our Pre-Enrollment Office Hours and Career Fair 101 which we offer to the engineering community. Professional development is based in personal development, and Theta Tau provides great opportunities to assist brothers in finding and following their own paths.
                         </p>
                     </div>
                 </div>
@@ -276,6 +272,7 @@
                         </div>
                         {% endfor %}
                     </div>
+                    <div class="spt-nav center"></div>
                 </div>
             </div>
 
@@ -393,8 +390,8 @@
     {% set ln = 1 %}
     {% set id = 2 %}
     {% set type = 3 %}
-    {% set bios = range(4,9) %}
-    {% set net = 9 %}
+    {% set bios = range(4,11) %}
+    {% set net = 11 %}
 
     <div id="brothers" class="bg-lightgrey-2 pt4" name="brothers">
         <div class="container bb-grey pt3 pb4">
@@ -524,7 +521,7 @@
                 <p class="lh2" style="font-size:1.6rem">Spring recruitment is open! Theta Tau is looking for Cornell's most driven and hardworking engineers to join our organization. Please make sure to take your time when applying -- we've added a new optional personal statement section, so don't push the application until last minute.</p>
                 <!-- TODO: Replace rush chair names and emails. -->
                 <p class="lh2" style="font-size:1.6rem">If you have any questions or comments regarding any part of the application (or even for help!) don't hesitate to reach out to the recruitment chairs Kyra Conroy (kdc58@cornell.edu) and Joanna Davis (jd699@cornell.edu). Hope to see you at an information session!</p>
-                <p class="lh2" style="font-size:1.6rem">Like us on Facebook for quick updates! <a href="http://facebook.com/cornellthetatau" target="_blank">http://facebook.com/cornellthetatau</a></p>
+                <p class="lh2" style="font-size:1.6rem">Like us on Facebook for quick updates: <a href="http://facebook.com/cornellthetatau" target="_blank">http://facebook.com/cornellthetatau</a></p>
                 <hr/>
                 <p>
                     <!-- TODO: Replace application link as necessary. -->

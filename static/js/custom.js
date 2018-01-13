@@ -49,7 +49,10 @@ $(document).ready(function(){
 	$('.spotlight').slick({
 		autoplay: true,
 		autoplaySpeed: 5000,
-		arrows:false,
-		adaptiveHeight: true
+		arrows:true,
+		adaptiveHeight: true,
+		appendArrows: $('.spt-nav'),
+		prevArrow: '<button style="margin-right:20px;"><</button>',
+		nextArrow: '<button style="">></button>'
 	});
 });
