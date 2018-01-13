@@ -1,5 +1,5 @@
 /**
- * Not sure what this function does haha.
+ * Organizes grid layout of images when loading the site.
  */
 $(window).load(function () {
 	var currentTallest = 0,
@@ -43,10 +43,9 @@ $(window).load(function () {
 });
 
 /**
- *
+ * Enables spotlight's carousel.
  */
 $(document).ready(function(){
-	console.log('Hellow');
 	$('.spotlight').slick({
 		autoplay: true,
 		autoplaySpeed: 5000,
