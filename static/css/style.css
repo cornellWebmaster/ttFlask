@@ -100,6 +100,11 @@ p{
   background-repeat: no-repeat;
   background-position: center center;  
 }
+.bg-spotlight{
+  background-size:   cover;                      /* <------ */
+  background-repeat: no-repeat;
+  background-position: center center;  
+}
 
 .white{color:white;}
 

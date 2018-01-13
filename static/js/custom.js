@@ -1,3 +1,6 @@
+/**
+ * Not sure what this function does haha.
+ */
 $(window).load(function () {
 	var currentTallest = 0,
      currentRowStart = 0,
@@ -39,3 +42,15 @@ $(window).load(function () {
 	 });
 });
 
+/**
+ *
+ */
+$(document).ready(function(){
+	console.log('Hellow');
+	$('.spotlight').slick({
+		autoplay: true,
+		autoplaySpeed: 5000,
+		arrows:false,
+		adaptiveHeight: true
+	});
+});
