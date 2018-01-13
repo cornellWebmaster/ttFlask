@@ -5,18 +5,19 @@ Main Flask application which runs the website.
 from flask import Flask, render_template, request
 import os
 import sys
+
 reload(sys)
 sys.setdefaultencoding("utf8")
 app = Flask(__name__)
-app_status = "block"
+
+# TODO: Switch between "block" and "none" as necessary.
+app_status = "block" # Enables/disables rush applications.
+                     # Toggle between "block" and "none"
 
 @app.route('/')
-def hello_world(): 
+def main_page(): 
     """
-    Main function.
-
-    NOTE: To enable rush applications, let apply_display="block".
-    To disable, let apply_display="none".
+    Main page of website.
     """
     with open("data/places/employers.txt", "r") as employers, \
         open("data/places/schools.txt", "r") as schools, \
@@ -33,35 +34,54 @@ def hello_world():
                                semester=semesterly.readlines()[1:],
                                brothers=brothers.readlines()[1:],
                                spotlights=spotlight.readlines()[1:],
-                               # TODO: Switch between "block" and "none" as necessary.
                                apply_display=app_status
                                )
 
 @app.route('/spotlight')
-def spotlight_info():
+def spotlight_page():
     """
-    Spotlight page.
+    Spotlight page. Takes in a unique 8-char ID and maps it to
+    the corresponding spotlight article if it exists.
+
+    If the ID is not found, then redirects to 404 page.
     """
     id = request.args.get('id')
 
     with open("data/spotlight/spotlight.tsv", "r") as spotlight, \
         open("data/brothers/core.tsv", "r") as eboard:
         article = _find_article(id, spotlight.readlines())
-        return render_template("spotlight.html",
+        if article == None:
+            return render_template("404.html",
+                                   eboard=eboard.readlines()[1:],
+                                   path="this",
+                                   apply_display=app_status)
+        else:
+            return render_template("spotlight.html",
+                                   eboard=eboard.readlines()[1:],
+                                   spotlight=article,
+                                   apply_display=app_status)
+
+@app.route('/<path:path>')
+def page_not_found(path):
+    """
+    Page for nonexistent pages on website.
+    """
+    with open("data/brothers/core.tsv", "r") as eboard:
+        return render_template("404.html",
                                eboard=eboard.readlines()[1:],
-                               spotlight=article,
+                               path=path,
                                apply_display=app_status)
 
 def _find_article(id, file):
+    """
+    Given contents of spotlight.tsv file, will find the row
+    which corresponds to the given ID.
+    """
     for line in file:
         line_list = line.split('\t')
         if line_list[0] == id:
             return line_list
-    return [None, 
-        "404 Not Found", 
-        None,
-        "404.jpg",
-        "Sorry, this webpage could not be found."]
+    return None
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
