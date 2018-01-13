@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Basic Page Needs
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <meta charset="utf-8">
+    <title>Theta Tau Cornell - {{spotlight[1]}} </title>
+    <meta name="description" content="The Foremost Professional Engineering Fraternity">
+    <meta name="author" content="Andrew Aquino, Brandon Hartz, Varun Hegde, Valerie Hu, Yuxiao Tan, Brian Guo, Celine Choo">
+
+    <!-- Mobile Specific Metas
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSS
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link rel="stylesheet" href="{{url_for('static', filename='css/normalize.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/skeleton.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/dropzone.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap-theme.min.css')}}">
+
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,600,300' rel='stylesheet' type='text/css'>
+
+    <!-- Javascript plugins -->
+
+    <link rel="icon" type="image/png" href="{{url_for('static', filename='img/favicon.ico')}}">
+</head>
+<body>
+
+<!-- ======= Setting vars for brother profiles =======
+    Basically, these numbers denote which column refers to which
+    attribute of a brother. This should be universal across all
+    csv/tsv's, since the same indices are used between core eboard,
+    semesterly eboard, and regular brothers.
+
+    fn = first name (first column)
+    ln = last name (second column)
+    id = the ID of a brother - this is bc some people have the same
+         first and last name, so we need a way to find echen1.jpg and
+         echen2.jpg. (third column)
+    type = the type (can be either PC or eboard position, depending
+         on which file is being used). (fourth column)
+    bios = array of columns that are bios (each cell is a separate paragraph).
+         (5th to 9th column).
+    net = column which contains netID (10th column).
+-->
+{% set fn = 0 %}
+{% set ln = 1 %}
+{% set id = 2 %}
+{% set type = 3 %}
+{% set bios = range(4,11) %}
+{% set net = 11 %}
+
+{% set sid = 0 %}
+{% set stitle = 1 %}
+{% set sdesc = 2 %}
+{% set simg = 3 %}
+{% set subtitle = 4 %}
+{% set endtitle = 5 %}
+{% set content = range(6,16) %}
+
+<!--=======================================================
+                        NAVIGATION
+========================================================-->
+
+<ul class="navigation mobile">
+    <li class="nav-item"><a href="/#home" >Home</a></li>
+    <li class="nav-item"><a href="/#about-us">About</a></li>
+    <li class="nav-item"><a href="/#spotlight">Spotlight</a></li>
+    <li class="nav-item"><a href="/#portfolio">Portfolio</a></li>
+    <li class="nav-item"><a href="/#brothers">Brothers</a></li>
+    {% if apply_display == "block" %}<li class="nav-item"><a href="/#apply">Apply</a></li>{% endif %}
+    <li class="nav-item"><a href="/#contact">Contact</a></li>
+</ul>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger mobile" />
+<label for="nav-trigger" class="mobile">
+  <svg class="bg-black link" width="20px" height="15px" viewBox="0 0 20 15" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+      <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+          <g id="Rectangle-1-+-Rectangle-1-Copy-2-+-Rectangle-1-Copy" sketch:type="MSLayerGroup" fill="#dddddd">
+              <rect id="Rectangle-1" sketch:type="MSShapeGroup" x="0" y="0" width="20" height="3" rx="2"></rect>
+              <rect id="Rectangle-1-Copy-2" sketch:type="MSShapeGroup" x="0" y="6" width="20" height="3" rx="2"></rect>
+              <rect id="Rectangle-1-Copy" sketch:type="MSShapeGroup" x="0" y="12" width="20" height="3" rx="2"></rect>
+          </g>
+      </g>
+  </svg>
+</label>
+
+<div class="site-wrap">
+    <div class="bg-black regular">
+    <div class="container pt2 pb2 nav-desktop">
+        <div class="row">
+            <div class="four columns">
+                <img class="menu-item" src="{{url_for('static', filename='img/red.tt.logo.png')}}"/>
+            </div>
+            <div class="eight columns">
+                <a class="link menu-item" href="/#contact">Contact</a>
+                {% if apply_display == "block" %}<a class="link menu-item" href="/#apply">Apply</a>{% endif %}
+                <a class="link menu-item" href="/#brothers">Brothers</a>
+                <a class="link menu-item" href="/#portfolio">Portfolio</a>
+                <a class="link menu-item" href="/#spotlight">Spotlight</a>
+                <a class="link menu-item" href="/#about-us">About</a>
+                <a class="link menu-item" href="/#home">Home</a>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+    <!--=======================================================
+                            HEADER
+    ========================================================-->
+    <style>
+    .bg-spotlight {
+        background: url('../static/img/spotlight/{{spotlight[simg]}}');
+    }
+    </style>
+    <div id="home" class="bg-spotlight">
+      <div class="container pt12 pb12 center">
+          <div class="row">
+              <h1 class="capitalize white bold mt2">Theta Tau</h1>
+          </div>
+      </div>
+    </div>
+
+    <!--=======================================================
+                              spotlight
+    ========================================================-->
+
+    <div class="container pt4 pb4">
+        <div class="row">
+            <h6 class="decorated">{{spotlight[subtitle]}}</h6>
+            <h2 class="bold">{{spotlight[stitle]}}</h2>
+        </div>
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" width="52px" height="2px" viewBox="0 0 52 2" version="1.1">
+            <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+                <path d="M1.5,1 L50.3364601,1" id="Line" stroke="#E03B3B" stroke-width="2" stroke-linecap="square" sketch:type="MSShapeGroup"/>
+            </g>
+        </svg>
+        <div class="row mt2 mb4">
+        {% for i in content %}
+            {% if spotlight[i]|trim|length != 0 %}
+                <p>{{spotlight[i] | safe}}</p>
+            {% endif %}
+        {% endfor %}
+        {% if spotlight[endtitle]|trim|length != 0 %}
+            <div style="text-align:right;"><h6 class="decorated">{{spotlight[endtitle]}}</h6></div>
+        {% endif %}
+        </div>
+    </div>
+
+
+    <!--=======================================================
+                              CONTACT
+    ========================================================-->
+    <div id="contact" class="row bg-black pt4 pb4" name="contact">
+        <div class="container pt2 h7">
+            <div class="row footer">
+                <div class="row">
+                    <div class="two columns ">
+                        <h6 class="h7 decorated-2 white mb3">Contact</h6>
+                    </div>
+                    <div class="ten columns">
+                        <div class="row">
+                            {% for brother in eboard %}
+                                {% set brother = brother.split("\t") %}
+                                {% set netid = brother[net] | trim %}
+                                <div class="three columns">
+                                    <p class="grey lh2">{{brother[fn] ~ ' ' ~ brother[ln]}}<br>{{brother[type]}}<br><a href="mailto:{{netid}}@cornell.edu">{{netid}}@cornell.edu</a></p>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="eight columns offset-by-two mt2">
+                            <!-- TODO: Change year as necessary. -->
+                            <h6 class="copy mb0 regular h7 grey left decorated-2">© 2017 Theta Tau Cornell<br/>
+                                cornellttwebmaster@gmail.com | <a href="https://github.com/cornellWebmaster" target="_blank">github</a></h6>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<script src="{{url_for('static', filename='js/jquery.js')}}"></script>
+<script src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>
+</body>
