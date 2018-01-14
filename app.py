@@ -19,13 +19,13 @@ def main_page():
     """
     Main page of website.
     """
-    with open("data/places/employers.txt", "r") as employers, \
-        open("data/places/schools.txt", "r") as schools, \
-        open("data/places/teams.txt", "r") as teams, \
+    with open("data/portfolio/employers.txt", "r") as employers, \
+        open("data/portfolio/schools.txt", "r") as schools, \
+        open("data/portfolio/teams.txt", "r") as teams, \
         open("data/brothers/core.tsv", "r") as eboard, \
         open("data/brothers/semester.tsv", "r") as semesterly, \
         open("data/brothers/brothers.tsv", "r") as brothers, \
-        open("data/spotlight/spotlight.tsv", "r") as spotlight:
+        open("data/spotlight/carousel.tsv", "r") as carousel:
         return render_template("index.html",
                                employers=employers.readlines(),
                                schools=schools.readlines(),
@@ -33,7 +33,7 @@ def main_page():
                                eboard=eboard.readlines()[1:],
                                semester=semesterly.readlines()[1:],
                                brothers=brothers.readlines()[1:],
-                               spotlights=spotlight.readlines()[1:],
+                               carousel=carousel.readlines()[1:],
                                apply_display=app_status
                                )
 
