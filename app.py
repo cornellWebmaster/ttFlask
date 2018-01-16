@@ -11,8 +11,10 @@ sys.setdefaultencoding("utf8")
 app = Flask(__name__)
 
 # TODO: Switch between "block" and "none" as necessary.
-app_status = "block" # Enables/disables rush applications.
-                     # Toggle between "block" and "none"
+status = {
+        "apply": "block", # Enables/disables rush applications.
+        "spotlight": "none" # Enables/disables spotlights.
+    }
 
 @app.route('/')
 def main_page(): 
@@ -34,7 +36,7 @@ def main_page():
                                semester=semesterly.readlines()[1:],
                                brothers=brothers.readlines()[1:],
                                carousel=carousel.readlines()[1:],
-                               apply_display=app_status
+                               status=status
                                )
 
 @app.route('/spotlight')
@@ -54,12 +56,12 @@ def spotlight_page():
             return render_template("404.html",
                                    eboard=eboard.readlines()[1:],
                                    path="this",
-                                   apply_display=app_status)
+                                   status=status)
         else:
             return render_template("spotlight.html",
                                    eboard=eboard.readlines()[1:],
                                    spotlight=article,
-                                   apply_display=app_status)
+                                   status=status)
 
 @app.route('/<path:path>')
 def page_not_found(path):
@@ -70,7 +72,7 @@ def page_not_found(path):
         return render_template("404.html",
                                eboard=eboard.readlines()[1:],
                                path=path,
-                               apply_display=app_status)
+                               status=status)
 
 def _find_article(id, file):
     """

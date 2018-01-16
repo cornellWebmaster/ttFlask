@@ -39,10 +39,10 @@
 <ul class="navigation mobile">
     <li class="nav-item"><a class="nav-home" >Home</a></li>
     <li class="nav-item"><a class="nav-about-us">About</a></li>
-    <li class="nav-item"><a class="nav-spotlight">Spotlight</a></li>
+    {% if status['spotlight'] == "block" %}<li class="nav-item"><a class="nav-spotlight">Spotlight</a></li>{% endif %}
     <li class="nav-item"><a class="nav-portfolio">Portfolio</a></li>
     <li class="nav-item"><a class="nav-brothers">Brothers</a></li>
-    {% if apply_display == "block" %}<li class="nav-item"><a class="nav-apply">Apply</a></li>{% endif %}
+    {% if status['apply'] == "block" %}<li class="nav-item"><a class="nav-apply">Apply</a></li>{% endif %}
     <li class="nav-item"><a class="nav-contact">Contact</a></li>
 </ul>
 
@@ -68,10 +68,10 @@
             </div>
             <div class="eight columns">
                 <a class="link menu-item nav-contact">Contact</a>
-                {% if apply_display == "block" %}<a class="link menu-item nav-apply">Apply</a>{% endif %}
+                {% if status['apply'] == "block" %}<a class="link menu-item nav-apply">Apply</a>{% endif %}
                 <a class="link menu-item nav-brothers">Brothers</a>
                 <a class="link menu-item nav-portfolio">Portfolio</a>
-                <a class="link menu-item nav-spotlight">Spotlight</a>
+                {% if status['spotlight'] == "block" %}<a class="link menu-item nav-spotlight">Spotlight</a>{% endif %}
                 <a class="link menu-item nav-about-us">About</a>
                 <a class="link menu-item nav-home">Home</a>
             </div>
@@ -243,7 +243,8 @@
     {% set sdesc = 2 %}
     {% set simg = 3 %}
 
-    <div id="spotlight" class="bg-lightgrey-2" name="current">
+    <!-- Spotlights disabled -->
+    <div id="spotlight" class="bg-lightgrey-2" name="current" style="display:{{status['spotlight']}};">
         <div class="container pt6 pb6 pl2 pr2">
             <div class="row">
                 <h2 class="bold offblack center">Spotlight</h2>
@@ -485,7 +486,7 @@
         app.py to do so.
 
     ========================================================-->
-    <div id="apply" class="bg-lightgrey-2" name="apply" style="display:{{apply_display}}">
+    <div id="apply" class="bg-lightgrey-2" name="apply" style="display:{{status['apply']}}">
         <div class="container pt6 pb6 pl2 pr2">
             <div class="row">
                 <h2 class="bold offblack center">Apply</h2>
