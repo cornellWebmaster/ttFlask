@@ -38,11 +38,11 @@
 
 <ul class="navigation mobile">
     <li class="nav-item"><a class="nav-home" >Home</a></li>
+    {% if status['apply'] == "block" %}<li class="nav-item"><a class="nav-apply">Apply</a></li>{% endif %}
     <li class="nav-item"><a class="nav-about-us">About</a></li>
     {% if status['spotlight'] == "block" %}<li class="nav-item"><a class="nav-spotlight">Spotlight</a></li>{% endif %}
     <li class="nav-item"><a class="nav-portfolio">Portfolio</a></li>
     <li class="nav-item"><a class="nav-brothers">Brothers</a></li>
-    {% if status['apply'] == "block" %}<li class="nav-item"><a class="nav-apply">Apply</a></li>{% endif %}
     <li class="nav-item"><a class="nav-contact">Contact</a></li>
 </ul>
 
@@ -68,11 +68,11 @@
             </div>
             <div class="eight columns">
                 <a class="link menu-item nav-contact">Contact</a>
-                {% if status['apply'] == "block" %}<a class="link menu-item nav-apply">Apply</a>{% endif %}
                 <a class="link menu-item nav-brothers">Brothers</a>
                 <a class="link menu-item nav-portfolio">Portfolio</a>
                 {% if status['spotlight'] == "block" %}<a class="link menu-item nav-spotlight">Spotlight</a>{% endif %}
                 <a class="link menu-item nav-about-us">About</a>
+                {% if status['apply'] == "block" %}<a class="link menu-item nav-apply">Apply</a>{% endif %}
                 <a class="link menu-item nav-home">Home</a>
             </div>
         </div>
@@ -86,6 +86,62 @@
         <div class="container pt12 pb12 center">
             <div class="row">
                 <h1 class="capitalize white bold mt2">Theta Tau</h1>
+            </div>
+        </div>
+    </div>
+
+    <!--=======================================================
+
+                        APPLY (desc & form)
+                                ___
+
+        Note: Please do not make the application part of the
+        website invisible in the HTML. There is a place in 
+        app.py to do so.
+
+    ========================================================-->
+    <div id="apply" class="bg-lightgrey-2" name="apply" style="display:{{status['apply']}}">
+        <div class="container pt6 pb6 pl2 pr2">
+            <div class="row">
+                <h2 class="bold offblack center">Become a Brother</h2>
+            </div>
+            <div class="row mb2 mt4">
+                <div class="w-50 mx-auto">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" width="52px" height="2px" viewBox="0 0 52 2" version="1.1">
+                        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+                            <path d="M1.5,1 L50.3364601,1" id="Line" stroke="#E03B3B" stroke-width="2" stroke-linecap="square" sketch:type="MSShapeGroup"/>
+                        </g>
+                    </svg>
+                </div>
+            </div>
+            <div>
+                <center>
+                 <h6 class="decorated-2 mb3" style="margin:0; padding-top: 40px;">Spring Recruitment Application</h6>
+                 <!-- TODO: Replace deadline date. -->
+                 <h7 class="decorated-2 mb3" style="margin:0; padding-top: 40px;">DEADLINE: Jan 31 12:00 PM</h6>
+                </center>
+            </div>
+            <div class="row mx-auto">
+                <!-- TODO: Replace info session times/dates. -->
+                <div class="six columns p4">
+                    <h6 class="mb0">Information Session 1</h6>
+                    <p class="caption"> Jan 29 | 7:00 - 9:00 PM | Phillips 101 </p>
+                </div>
+                <div class="six columns p4">
+                    <h6 class="mb0">Information Session 2</h6>
+                    <p class="caption"> Jan 30 | 7:00 - 9:00 PM | Olin 155 </p>
+                </div>
+            </div>
+            <div style="padding: 0 40px 40px 40px;">
+                <p class="lh2" style="font-size:1.6rem">Spring recruitment is open! Theta Tau is looking for Cornell's most driven and hardworking engineers to join our organization. Please make sure to take your time when applying -- we've added a new optional personal statement section, so don't push the application until last minute.</p>
+                <!-- TODO: Replace rush chair names and emails. -->
+                <p class="lh2" style="font-size:1.6rem">If you have any questions or comments regarding any part of the application (or even for help!) don't hesitate to reach out to the recruitment chairs Kyra Conroy (kdc58@cornell.edu) and Joanna Davis (jd699@cornell.edu). Hope to see you at an information session!</p>
+                <p class="lh2" style="font-size:1.6rem">Like us on Facebook for quick updates: <a href="http://facebook.com/cornellthetatau" target="_blank">http://facebook.com/cornellthetatau</a></p>
+                <hr/>
+                <p>
+                    <!-- TODO: Replace application link as necessary. -->
+                    <center><a href="https://goo.gl/forms/RGWuosuzxijJlWNr1" target="_blank"><button>OPEN APPLICATION</button></a></center>
+                </p>
             </div>
         </div>
     </div>
@@ -472,62 +528,6 @@
                 </div>
             </div>
         {% endfor %}
-            </div>
-        </div>
-    </div>
-
-    <!--=======================================================
-
-                        APPLY (desc & form)
-                                ___
-
-        Note: Please do not make the application part of the
-        website invisible in the HTML. There is a place in 
-        app.py to do so.
-
-    ========================================================-->
-    <div id="apply" class="bg-lightgrey-2" name="apply" style="display:{{status['apply']}}">
-        <div class="container pt6 pb6 pl2 pr2">
-            <div class="row">
-                <h2 class="bold offblack center">Apply</h2>
-            </div>
-            <div class="row mb2 mt4">
-                <div class="w-50 mx-auto">
-                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" width="52px" height="2px" viewBox="0 0 52 2" version="1.1">
-                        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
-                            <path d="M1.5,1 L50.3364601,1" id="Line" stroke="#E03B3B" stroke-width="2" stroke-linecap="square" sketch:type="MSShapeGroup"/>
-                        </g>
-                    </svg>
-                </div>
-            </div>
-            <div>
-                <center>
-                 <h6 class="decorated-2 mb3" style="margin:0; padding-top: 40px;">Spring Recruitment Application</h6>
-                 <!-- TODO: Replace deadline date. -->
-                 <h7 class="decorated-2 mb3" style="margin:0; padding-top: 40px;">DEADLINE: Jan 31 12:00 PM</h6>
-                </center>
-            </div>
-            <div class="row mx-auto">
-                <!-- TODO: Replace info session times/dates. -->
-                <div class="six columns p4">
-                    <h6 class="mb0">Information Session 1</h6>
-                    <p class="caption"> Jan 29 | 7:00 - 9:00 PM | Location TBD </p>
-                </div>
-                <div class="six columns p4">
-                    <h6 class="mb0">Information Session 2</h6>
-                    <p class="caption"> Jan 30 | 7:00 - 9:00 PM | Location TBD </p>
-                </div>
-            </div>
-            <div style="padding: 0 40px 40px 40px;">
-                <p class="lh2" style="font-size:1.6rem">Spring recruitment is open! Theta Tau is looking for Cornell's most driven and hardworking engineers to join our organization. Please make sure to take your time when applying -- we've added a new optional personal statement section, so don't push the application until last minute.</p>
-                <!-- TODO: Replace rush chair names and emails. -->
-                <p class="lh2" style="font-size:1.6rem">If you have any questions or comments regarding any part of the application (or even for help!) don't hesitate to reach out to the recruitment chairs Kyra Conroy (kdc58@cornell.edu) and Joanna Davis (jd699@cornell.edu). Hope to see you at an information session!</p>
-                <p class="lh2" style="font-size:1.6rem">Like us on Facebook for quick updates: <a href="http://facebook.com/cornellthetatau" target="_blank">http://facebook.com/cornellthetatau</a></p>
-                <hr/>
-                <p>
-                    <!-- TODO: Replace application link as necessary. -->
-                    <center><a href="https://goo.gl/forms/RGWuosuzxijJlWNr1" target="_blank"><button>OPEN APPLICATION</button></a></center>
-                </p>
             </div>
         </div>
     </div>
