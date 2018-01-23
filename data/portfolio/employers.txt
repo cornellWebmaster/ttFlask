@@ -6,6 +6,7 @@ BAE.png,http://www.baesystems.com/en/home
 blackjet.png
 blackrock.png,http://www.blackrock.com
 blackstone.png,http://www.blackstone.com
+bnpparibas.png,https://group.bnpparibas/en/
 boeing.png,http://www.boeing.com
 burnsmcdonnel.png,http://www.burnsmcd.com
 buzzfeed.png,http://www.buzzfeed.com
