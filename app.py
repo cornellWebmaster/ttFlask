@@ -13,7 +13,7 @@ app = Flask(__name__)
 # TODO: Switch between "block" and "none" as necessary.
 status = {
         "apply": "none", # Enables/disables rush applications.
-        "spotlight": "none" # Enables/disables spotlights.
+        "spotlight": "block" # Enables/disables spotlights.
     }
 
 @app.route('/')
