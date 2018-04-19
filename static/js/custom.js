@@ -50,7 +50,7 @@ $(document).ready(function(){
 		autoplay: true,
 		autoplaySpeed: 5000,
 		arrows:true,
-		adaptiveHeight: true,
+		adaptiveHeight: false,
 		appendArrows: $('.spt-nav'),
 		prevArrow: '<button style="margin-right:20px;"><</button>',
 		nextArrow: '<button style="">></button>'
