@@ -484,7 +484,7 @@
             {% set brother = brother.split("\t") %}
             <div class="col sm-col sm-col-4 md-col-3 lg-col-2 sublabel p-small blocks">
                 <div class="" style="cursor:pointer" data-toggle="modal" data-target="[name = '{{brother[type] ~ "_" ~ brother[fn] ~ "_" ~ brother[ln]}}']">
-                    <img src="{{url_for('static', filename='img/brothers/' ~ brother[fn][0]|lower|replace(' ', '') ~ brother[ln]|lower|replace(' ', '') ~ brother[id]|replace(' ','') ~'.jpg')}}" onerror="this.src='../static/img/brothers/_profile.jpg'" alt="{{ brother[fn] ~ ' ' ~ brother[ln]}}" />
+                    <img src="{{url_for('static', filename='img/brothers/' ~ brother[fn][0]|lower|replace(' ', '') ~ brother[ln]|lower|replace(' ', '') ~ brother[id]|replace(' ','') ~'.jpg')}}" alt="{{ brother[fn] ~ ' ' ~ brother[ln]}}" />
                 </div>
                 <div class="">
                     <h6 class="h7 center decorated-2 mb0 mt1"> {{ brother[fn] ~ ' ' ~ brother[ln]}} </h6>
@@ -500,7 +500,7 @@
             {% set brother = brother.split("\t") %}
             <div class="col sm-col sm-col-4 md-col-3 lg-col-2 sublabel p-small blocks">
                 <div class="" style="cursor:pointer" data-toggle="modal" data-target="[name = '{{brother[type] ~ "_" ~ brother[fn] ~ "_" ~ brother[ln]}}']">
-                    <img src="{{url_for('static', filename='img/brothers/' ~ brother[fn][0]|lower|replace(' ', '') ~ brother[ln]|lower|replace(' ', '') ~ brother[id]|replace(' ','') ~'.jpg')}}" onerror="this.src='../static/img/brothers/_profile.jpg'" alt="{{ brother[0] ~ ' ' ~ brother[1]}}" />
+                    <img src="{{url_for('static', filename='img/brothers/' ~ brother[fn][0]|lower|replace(' ', '') ~ brother[ln]|lower|replace(' ', '') ~ brother[id]|replace(' ','') ~'.jpg')}}" alt="{{ brother[0] ~ ' ' ~ brother[1]}}" />
                 </div>
                 <div class="">
                     <h6 class="h7 center decorated-2 mb0 mt1"> {{ brother[fn] ~ ' ' ~ brother[ln]}} </h6>
@@ -533,7 +533,7 @@
         {% endif %}
             <div class="col sm-col sm-col-4 md-col-2 lg-col-2 p-small blocks">
                 <div class=""style="cursor:pointer" data-toggle="modal" data-target="[name = '{{brother[type] ~ '_' ~ brother[fn] ~ '_' ~ brother[ln]}}']">
-                    <img src="{{url_for('static', filename='img/brothers/' ~ brother[fn][0]|lower|replace(' ', '') ~ brother[ln]|lower|replace(' ', '') ~ brother[id]|replace(' ','') ~'.jpg')}}" onerror="this.src='../static/img/brothers/_profile.jpg'" alt="{{ brother[fn] ~ ' ' ~ brother[ln]}}" height="223.5px">
+                    <img src="{{url_for('static', filename='img/brothers/' ~ brother[fn][0]|lower|replace(' ', '') ~ brother[ln]|lower|replace(' ', '') ~ brother[id]|replace(' ','') ~'.jpg')}}" alt="{{ brother[fn] ~ ' ' ~ brother[ln]}}" height="223.5px">
                 </div>
                 <div class="">
                     <h6 class="h7 center decorated-2 mt1 mb2">{{ brother[fn] ~ ' ' ~ brother[ln]}}</h6><br>
@@ -591,7 +591,7 @@
                 <div class="modal-dialog">
                     <div class="bg-white">
                         <div class="overlay" class="bio"
-                             style="background: url({{url_for('static', filename='img/brothers/' ~ brother[fn][0]|lower|replace(' ', '') ~ brother[ln]|lower|replace(' ', '') ~ brother[id]|replace(' ','') ~ '.jpg')}}), url(../static/img/brothers/_profile.jpg);
+                             style="background: url({{url_for('static', filename='img/brothers/' ~ brother[fn][0]|lower|replace(' ', '') ~ brother[ln]|lower|replace(' ', '') ~ brother[id]|replace(' ','') ~ '.jpg')}});
                                     background-size:   cover;
                                     background-repeat: no-repeat;
                                     background-position: center 30%; ">
@@ -625,7 +625,7 @@
                     <div class="bg-white">
                         <div class="row">
                             <div class="six columns width-50p" class="bio"
-                                 style="background: url({{url_for('static', filename='img/brothers/' ~ brother[fn][0]|lower|replace(' ', '') ~ brother[ln]|lower|replace(' ', '') ~ brother[id]|replace(' ','') ~'.jpg')}}), url(../static/img/brothers/_profile.jpg);
+                                 style="background: url({{url_for('static', filename='img/brothers/' ~ brother[fn][0]|lower|replace(' ', '') ~ brother[ln]|lower|replace(' ', '') ~ brother[id]|replace(' ','') ~'.jpg')}});
                                         background-size:   cover;
                                         background-repeat: no-repeat;
                                         background-position: center 30%;
