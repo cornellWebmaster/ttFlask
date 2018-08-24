@@ -3,10 +3,11 @@ Main Flask application which runs the website.
 """
 
 from flask import Flask, render_template, request
-from importlib import reload
 import os
 import sys
 
+reload(sys)
+sys.setdefaultencoding("utf8")
 app = Flask(__name__)
 
 # TODO: Switch between "block" and "none" as necessary.
