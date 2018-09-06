@@ -75,10 +75,6 @@ p{
   background: rgba(70, 72, 82, 0.2);
 }
 
-.bio{
-  background: url(../static/img/brothers/_profile.jpg)
-}
-
 .bold{font-weight:700;}
 .regular{font-weight:400 !important;}
 .light{font-weight:100;}

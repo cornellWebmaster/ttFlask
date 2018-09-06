@@ -128,31 +128,31 @@
             </div>
             <div>
                 <center>
-                 <h6 class="decorated-2 mb3" style="margin:0; padding-top: 40px;">Spring Recruitment Application</h6>
+                 <h6 class="decorated-2 mb3" style="margin:0; padding-top: 40px;">Fall Recruitment Application</h6>
                  <!-- TODO: Replace deadline date. -->
-                 <h7 class="decorated-2 mb3" style="margin:0; padding-top: 40px;">DEADLINE: Jan 31 12:00 PM</h6>
+                 <h7 class="decorated-2 mb3" style="margin:0; padding-top: 40px;">DEADLINE: Sept 12 12:00 PM</h6>
                 </center>
             </div>
             <div class="row mx-auto">
                 <!-- TODO: Replace info session times/dates. -->
                 <div class="six columns p4">
                     <h6 class="mb0">Information Session 1</h6>
-                    <p class="caption"> Jan 29 | 7:00 - 9:00 PM | Phillips 101 </p>
+                    <p class="caption"> Sept 10 | 7:00 - 9:00 PM | Olin 155 </p>
                 </div>
                 <div class="six columns p4">
                     <h6 class="mb0">Information Session 2</h6>
-                    <p class="caption"> Jan 30 | 7:00 - 9:00 PM | Olin 155 </p>
+                    <p class="caption"> Sept 11 | 7:00 - 9:00 PM | Olin 155 </p>
                 </div>
             </div>
             <div style="padding: 0 40px 40px 40px;">
-                <p class="lh2" style="font-size:1.6rem">Spring recruitment is open! Theta Tau is looking for Cornell's most driven and hardworking engineers to join our organization. Please make sure to take your time when applying -- we've added a new optional personal statement section, so don't push the application until last minute.</p>
+                <p class="lh2" style="font-size:1.6rem">Fall recruitment is open! Theta Tau is looking for Cornell's most driven and hardworking engineers to join our organization. Please make sure to take your time when applying -- we've added a new optional personal statement section, so don't push the application until last minute.</p>
                 <!-- TODO: Replace rush chair names and emails. -->
-                <p class="lh2" style="font-size:1.6rem">If you have any questions or comments regarding any part of the application (or even for help!) don't hesitate to reach out to the recruitment chairs Kyra Conroy (kdc58@cornell.edu) and Joanna Davis (jd699@cornell.edu). Hope to see you at an information session!</p>
+                <p class="lh2" style="font-size:1.6rem">If you have any questions or comments regarding any part of the application (or even for help!) don't hesitate to reach out to the recruitment chairs Erin Chen (elc93@cornell.edu) and Priyanka Konan (pk443@cornell.edu). Hope to see you at an information session!</p>
                 <p class="lh2" style="font-size:1.6rem">Like us on Facebook for quick updates: <a href="http://facebook.com/cornellthetatau" target="_blank">http://facebook.com/cornellthetatau</a></p>
                 <hr/>
                 <p>
                     <!-- TODO: Replace application link as necessary. -->
-                    <center><a href="https://goo.gl/forms/RGWuosuzxijJlWNr1" target="_blank"><button>OPEN APPLICATION</button></a></center>
+                    <center><a href="https://goo.gl/forms/WOoIQabMwdc69NrG3" target="_blank"><button>OPEN APPLICATION</button></a></center>
                 </p>
             </div>
         </div>
@@ -484,7 +484,7 @@
             {% set brother = brother.split("\t") %}
             <div class="col sm-col sm-col-4 md-col-3 lg-col-2 sublabel p-small blocks">
                 <div class="" style="cursor:pointer" data-toggle="modal" data-target="[name = '{{brother[type] ~ "_" ~ brother[fn] ~ "_" ~ brother[ln]}}']">
-                    <img src="{{url_for('static', filename='img/brothers/' ~ brother[fn][0]|lower|replace(' ', '') ~ brother[ln]|lower|replace(' ', '') ~ brother[id]|replace(' ','') ~'.jpg')}}" onerror="this.src='../static/img/brothers/_profile.jpg'" alt="{{ brother[fn] ~ ' ' ~ brother[ln]}}" />
+                    <img class="bio" src="{{url_for('static', filename='img/brothers/' ~ brother[fn][0]|lower|replace(' ', '') ~ brother[ln]|lower|replace(' ', '') ~ brother[id]|replace(' ','') ~'.jpg')}}" alt="{{ brother[fn] ~ ' ' ~ brother[ln]}}" />
                 </div>
                 <div class="">
                     <h6 class="h7 center decorated-2 mb0 mt1"> {{ brother[fn] ~ ' ' ~ brother[ln]}} </h6>
@@ -500,7 +500,7 @@
             {% set brother = brother.split("\t") %}
             <div class="col sm-col sm-col-4 md-col-3 lg-col-2 sublabel p-small blocks">
                 <div class="" style="cursor:pointer" data-toggle="modal" data-target="[name = '{{brother[type] ~ "_" ~ brother[fn] ~ "_" ~ brother[ln]}}']">
-                    <img src="{{url_for('static', filename='img/brothers/' ~ brother[fn][0]|lower|replace(' ', '') ~ brother[ln]|lower|replace(' ', '') ~ brother[id]|replace(' ','') ~'.jpg')}}" onerror="this.src='../static/img/brothers/_profile.jpg'" alt="{{ brother[0] ~ ' ' ~ brother[1]}}" />
+                    <img class="bio_img" src="{{url_for('static', filename='img/brothers/' ~ brother[fn][0]|lower|replace(' ', '') ~ brother[ln]|lower|replace(' ', '') ~ brother[id]|replace(' ','') ~'.jpg')}}" alt="{{ brother[0] ~ ' ' ~ brother[1]}}" />
                 </div>
                 <div class="">
                     <h6 class="h7 center decorated-2 mb0 mt1"> {{ brother[fn] ~ ' ' ~ brother[ln]}} </h6>
@@ -533,7 +533,7 @@
         {% endif %}
             <div class="col sm-col sm-col-4 md-col-2 lg-col-2 p-small blocks">
                 <div class=""style="cursor:pointer" data-toggle="modal" data-target="[name = '{{brother[type] ~ '_' ~ brother[fn] ~ '_' ~ brother[ln]}}']">
-                    <img src="{{url_for('static', filename='img/brothers/' ~ brother[fn][0]|lower|replace(' ', '') ~ brother[ln]|lower|replace(' ', '') ~ brother[id]|replace(' ','') ~'.jpg')}}" onerror="this.src='../static/img/brothers/_profile.jpg'" alt="{{ brother[fn] ~ ' ' ~ brother[ln]}}" height="223.5px">
+                    <img class="bio" src="{{url_for('static', filename='img/brothers/' ~ brother[fn][0]|lower|replace(' ', '') ~ brother[ln]|lower|replace(' ', '') ~ brother[id]|replace(' ','') ~'.jpg')}}" alt="{{ brother[fn] ~ ' ' ~ brother[ln]}}" height="223.5px">
                 </div>
                 <div class="">
                     <h6 class="h7 center decorated-2 mt1 mb2">{{ brother[fn] ~ ' ' ~ brother[ln]}}</h6><br>
@@ -591,7 +591,7 @@
                 <div class="modal-dialog">
                     <div class="bg-white">
                         <div class="overlay" class="bio"
-                             style="background: url({{url_for('static', filename='img/brothers/' ~ brother[fn][0]|lower|replace(' ', '') ~ brother[ln]|lower|replace(' ', '') ~ brother[id]|replace(' ','') ~ '.jpg')}}), url(../static/img/brothers/_profile.jpg);
+                             style="background: url({{url_for('static', filename='img/brothers/' ~ brother[fn][0]|lower|replace(' ', '') ~ brother[ln]|lower|replace(' ', '') ~ brother[id]|replace(' ','') ~ '.jpg')}}), url({{url_for('static', filename='img/brothers/_profile.jpg')}});
                                     background-size:   cover;
                                     background-repeat: no-repeat;
                                     background-position: center 30%; ">
@@ -625,7 +625,7 @@
                     <div class="bg-white">
                         <div class="row">
                             <div class="six columns width-50p" class="bio"
-                                 style="background: url({{url_for('static', filename='img/brothers/' ~ brother[fn][0]|lower|replace(' ', '') ~ brother[ln]|lower|replace(' ', '') ~ brother[id]|replace(' ','') ~'.jpg')}}), url(../static/img/brothers/_profile.jpg);
+                                 style="background: url({{url_for('static', filename='img/brothers/' ~ brother[fn][0]|lower|replace(' ', '') ~ brother[ln]|lower|replace(' ', '') ~ brother[id]|replace(' ','') ~'.jpg')}}), url({{url_for('static', filename='img/brothers/_profile.jpg')}});
                                         background-size:   cover;
                                         background-repeat: no-repeat;
                                         background-position: center 30%;
