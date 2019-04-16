@@ -2,7 +2,7 @@
 Main Flask application which runs the website.
 """
 
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 import os
 import sys
 
@@ -15,6 +15,7 @@ status = {
         "apply": "none", # Enables/disables rush applications.
         "spotlight": "block" # Enables/disables spotlights.
     }
+internal_website_url = "https://sites.google.com/cornell.edu/thetatau/home"
 
 @app.route('/')
 def main_page(): 
@@ -62,6 +63,14 @@ def spotlight_page():
                                    eboard=eboard.readlines()[1:],
                                    spotlight=article,
                                    status=status)
+
+@app.route('/internal')
+def reroute_to_internal():
+  """
+  Reroutes to internal website. People outside of Theta Tau will be redirected
+  to a 404 error page.
+  """
+  return redirect(internal_website_url, code=302)
 
 @app.route('/<path:path>')
 def page_not_found(path):
