@@ -79,6 +79,12 @@ $(document).ready(function() {
         }, 1000);
     });
 
+    $(".nav-spotlight").click(function() {
+        $('html, body').animate({
+            scrollTop: $("#spotlight").offset().top
+        }, 1000);
+    });
+
     $(".nav-portfolio").click(function() {
         $('html, body').animate({
             scrollTop: $("#portfolio").offset().top

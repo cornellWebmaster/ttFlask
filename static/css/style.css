@@ -10,6 +10,16 @@ a.menu-item{
 	padding: 1em;
 }
 
+#thetatau {
+  cursor:default;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
 .go-top {
     position: fixed;
     bottom: 0.75em;
@@ -75,8 +85,6 @@ p{
   background: rgba(70, 72, 82, 0.2);
 }
 
-
-
 .bold{font-weight:700;}
 .regular{font-weight:400 !important;}
 .light{font-weight:100;}
@@ -96,6 +104,11 @@ p{
 .bg-red{background-color: #d24040;}
 .bg-header{
   background: url(../img/header.jpg);
+  background-size:   cover;                      /* <------ */
+  background-repeat: no-repeat;
+  background-position: center center;  
+}
+.bg-spotlight{
   background-size:   cover;                      /* <------ */
   background-repeat: no-repeat;
   background-position: center center;  

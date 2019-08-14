@@ -1,3 +1,6 @@
+/**
+ * Organizes grid layout of images when loading the site.
+ */
 $(window).load(function () {
 	var currentTallest = 0,
      currentRowStart = 0,
@@ -39,3 +42,17 @@ $(window).load(function () {
 	 });
 });
 
+/**
+ * Enables spotlight's carousel.
+ */
+$(document).ready(function(){
+	$('.spotlight').slick({
+		autoplay: true,
+		autoplaySpeed: 5000,
+		arrows:true,
+		adaptiveHeight: false,
+		appendArrows: $('.spt-nav'),
+		prevArrow: '<button style="margin-right:20px;"><</button>',
+		nextArrow: '<button style="">></button>'
+	});
+});
