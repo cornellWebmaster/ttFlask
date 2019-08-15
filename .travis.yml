@@ -1,0 +1,16 @@
+language: python
+sudo: required
+before_install:
+- openssl enc -d -aes-256-cbc -in ttwebsite.pem.enc -out ttwebsite.pem -k "$DECRYPT_KEY"
+addons:
+  ssh_known_hosts:
+  - ec2-3-17-151-101.us-east-2.compute.amazonaws.com
+deploy:
+  provider: script
+  script: bash redeploy
+  skip_cleanup: true
+  on:
+    branch:
+    - master
+script:
+- echo 'done'
