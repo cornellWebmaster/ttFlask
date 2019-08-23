@@ -4,10 +4,7 @@ Main Flask application which runs the website.
 
 from flask import Flask, render_template, request, redirect
 import os
-import sys
 
-reload(sys)
-sys.setdefaultencoding("utf8")
 app = Flask(__name__)
 
 # TODO: Switch between "block" and "none" as necessary.
