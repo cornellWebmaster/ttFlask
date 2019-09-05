@@ -49,7 +49,7 @@
 ========================================================-->
 
 <ul class="navigation mobile">
-    <li class="nav-item"><a class="nav-home" >Home</a></li>
+    {% if status['apply'] == "none" %}<li class="nav-item"><a class="nav-home" >Home</a></li>{% endif %}
     {% if status['apply'] == "block" %}<li class="nav-item"><a class="nav-apply">Apply</a></li>{% endif %}
     <li class="nav-item"><a class="nav-about-us">About</a></li>
     {% if status['spotlight'] == "block" %}<li class="nav-item"><a class="nav-spotlight">Spotlight</a></li>{% endif %}
@@ -85,7 +85,7 @@
                 {% if status['spotlight'] == "block" %}<a class="link menu-item nav-spotlight">Spotlight</a>{% endif %}
                 <a class="link menu-item nav-about-us">About</a>
                 {% if status['apply'] == "block" %}<a class="link menu-item nav-apply">Apply</a>{% endif %}
-                <a class="link menu-item nav-home">Home</a>
+                {% if status['apply'] == "none" %}<a class="link menu-item nav-home">Home</a>{% endif %}
             </div>
         </div>
     </div>
@@ -128,31 +128,32 @@
             </div>
             <div>
                 <center>
-                 <h6 class="decorated-2 mb3" style="margin:0; padding-top: 40px;">Spring Recruitment Application</h6>
+                 <h6 class="decorated-2 mb3" style="margin:0; padding-top: 40px;">Fall Recruitment Application</h6>
                  <!-- TODO: Replace deadline date. -->
-                 <h7 class="decorated-2 mb3" style="margin:0; padding-top: 40px;">DEADLINE: January 30 3:00pm</h7></h6>
+                 <h7 class="decorated-2 mb3" style="margin:0; padding-top: 40px;">DEADLINE: September 18th 3:00pm</h7></h6>
                 </center>
             </div>
             <div class="row mx-auto">
                 <!-- TODO: Replace info session times/dates. -->
                 <div class="six columns p4">
                     <h6 class="mb0">Information Session 1</h6>
-                    <p class="caption"> Jan 28 | 5:00 - 7:00 PM | Phillips 101 </p>
+                    <p class="caption"> Sep 16 | 5:00 - 7:00 PM | Phillips 101 </p>
                 </div>
                 <div class="six columns p4">
                     <h6 class="mb0">Information Session 2</h6>
-                    <p class="caption"> Jan 29 | 7:00 - 9:00 PM | Phillips 101 </p>
+                    <p class="caption"> Sep 17 | 7:00 - 9:00 PM | Phillips 101 </p>
                 </div>
             </div>
             <div style="padding: 0 40px 40px 40px;">
-                <p class="lh2" style="font-size:1.6rem">Spring recruitment is open! Theta Tau is looking for Cornell's most driven and hardworking engineers to join our organization.</p>
+                <!-- TODO: Replace season. -->
+                <p class="lh2" style="font-size:1.6rem">Fall recruitment is open! Theta Tau is looking for Cornell's most driven and hardworking engineers to join our organization.</p>
                 <!-- TODO: Replace rush chair names and emails. -->
-                <p class="lh2" style="font-size:1.6rem">If you have any questions or comments regarding any part of the application (or even for help!) don't hesitate to reach out to the recruitment chairs Francis Rayos Del Sol (fmr32@cornell.edu) and Clara Walton (ckw36@cornell.edu). Hope to see you at an information session!</p>
+                <p class="lh2" style="font-size:1.6rem">If you have any questions or comments regarding any part of the application (or even for help!) don't hesitate to reach out to the recruitment chairs Kevin Cavallo (koc4@cornell.edu) and Rema Toopal (rmt233@cornell.edu). Hope to see you at an information session!</p>
                 <p class="lh2" style="font-size:1.6rem">Like us on Facebook for quick updates: <a href="http://facebook.com/cornellthetatau" target="_blank">http://facebook.com/cornellthetatau</a></p>
                 <hr/>
                 <p>
                     <!-- TODO: Replace application link as necessary. -->
-                    <center><a href="https://goo.gl/forms/xij75s4db8gTb7nD3" target="_blank"><button>OPEN APPLICATION</button></a></center>
+                    <center><a href="https://docs.google.com/forms/d/e/1FAIpQLSeZCCEPPMlVQUmbDpytO_Z8niid7J9Vqn9rWVT7zgeLmU7gfw/viewform?usp=pp_url" target="_blank"><button>OPEN APPLICATION</button></a></center>
                 </p>
             </div>
         </div>
