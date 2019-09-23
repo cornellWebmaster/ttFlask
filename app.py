@@ -9,7 +9,7 @@ app = Flask(__name__)
 
 # TODO: Switch between "block" and "none" as necessary.
 status = {
-        "apply": "block", # Enables/disables rush applications.
+        "apply": "none", # Enables/disables rush applications.
         "spotlight": "block" # Enables/disables spotlights.
     }
 internal_website_url = "https://sites.google.com/cornell.edu/thetatau/home"
