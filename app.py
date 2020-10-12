@@ -6,6 +6,7 @@ from flask import Flask, render_template, request, redirect
 import os
 
 app = Flask(__name__)
+app.debug = True
 
 # TODO: Switch between "block" and "none" as necessary.
 status = {
